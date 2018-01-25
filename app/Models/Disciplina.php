@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Disciplina extends Model
 {
     protected $fillable = [
+        'CodDisc',
         'Nome',
         'CodArea'
     ];
-    protected  $table = 'Disciplinas';
-    //
+    protected $table = 'disciplina';
+    protected $primaryKey = 'CodDisc';
+    public $incrementing = false;
 }

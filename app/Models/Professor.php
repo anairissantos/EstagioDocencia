@@ -9,5 +9,7 @@ class Professor extends Model
     protected $fillable = [
         'Nome'
     ];
-    protected  $table = 'Professores';
+    protected  $table = 'professor';
+    protected $primaryKey = 'CodProf';
+
 }

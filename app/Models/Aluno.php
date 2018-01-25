@@ -8,8 +8,14 @@ class Aluno extends Model
 {
     protected $fillable = [
         'Nome',
-        'Nivel'
+        'Nivel',
+        'Matricula'
+
     ];
-    protected  $table = 'Alunos';
+    protected  $table = 'aluno';
+
+    protected $primaryKey = 'Matricula';
+
+    public $incrementing = false;
 
  }
