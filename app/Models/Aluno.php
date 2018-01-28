@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Aluno extends Model
 {
     protected $fillable = [
+        'Matricula',
         'Nome',
-        'Nivel',
-        'Matricula'
+        'Nivel'
 
     ];
-    protected  $table = 'aluno';
+    protected  $table = 'Aluno';
 
     protected $primaryKey = 'Matricula';
 

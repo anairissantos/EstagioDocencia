@@ -1,16 +1,11 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
+$this->group (['middleware'=>['auth'],'namespace'=> 'Admin'],function (){
+    $this->get('admin','AdminController@index')->name('admin');
+    /*precisa estar logado para acessar qualquer rota*/
 });
+
+$this->get('/', 'Site\SiteController@index')->name('home');
+
+
+Auth::routes();
+

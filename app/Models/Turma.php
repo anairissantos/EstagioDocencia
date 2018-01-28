@@ -13,12 +13,12 @@ class Turma extends Model
            'CodProf',
            'Horario',
            'TravaAlocacao',
-          'TurmaAtiva',
+           'TurmaAtiva',
 
     ];
 
-    protected $table = 'turma';
-    protected $primaryKey = ['CodTurma','CodDisc','Semestre'];
+    protected $table = 'Turma';
+    protected $primaryKey = 'CodTurma';
     public $incrementing = false;
 
 }

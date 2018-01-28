@@ -8,10 +8,13 @@ class Disciplina extends Model
 {
     protected $fillable = [
         'CodDisc',
-        'Nome',
-        'CodArea'
+        'CodArea',
+        'Nome'
+
     ];
-    protected $table = 'disciplina';
+    protected $table = 'Disciplina';
+
     protected $primaryKey = 'CodDisc';
+
     public $incrementing = false;
 }

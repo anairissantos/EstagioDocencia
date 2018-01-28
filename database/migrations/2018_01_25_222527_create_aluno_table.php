@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriaTabelaDisciplina extends Migration
+class CreateAlunoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CriaTabelaDisciplina extends Migration
      */
     public function up()
     {
-        Schema::create('disciplina', function (Blueprint $table) {
-            $table->string('CodDisc')->primary();
+        Schema::create('Aluno', function (Blueprint $table) {
+            $table->char('Matricula', 9)->primary();
             $table->string('Nome');
-            $table->unsignedInteger('area_CodArea')->nullable();
-            $table->foreign('area_CodArea')->references('CodArea')->on('area')->onDelete('set null');
+            $table->char('Nivel', 1);
             $table->timestamps();
         });
-
     }
 
     /**
@@ -30,6 +28,6 @@ class CriaTabelaDisciplina extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disciplina');
+        Schema::dropIfExists('Aluno');
     }
 }

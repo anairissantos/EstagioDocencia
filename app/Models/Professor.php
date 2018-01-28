@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Professor extends Model
 {
     protected $fillable = [
+        'CodProf',
         'Nome'
     ];
-    protected  $table = 'professor';
-    protected $primaryKey = 'CodProf';
+    protected  $table = 'Professor';
 
 }

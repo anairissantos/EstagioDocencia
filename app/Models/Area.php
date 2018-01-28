@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Area extends Model
 {
     protected $fillable = [
-        'Nome',
-        'CodArea'
+        'CodArea',
+        'Nome'
     ];
-    protected  $table = 'area';
-    protected $primaryKey = 'CodArea';
+    protected  $table = 'Area';
 }
 
 

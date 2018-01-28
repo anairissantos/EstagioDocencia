@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriaTabelaAluno extends Migration
+class CreateProfessorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CriaTabelaAluno extends Migration
      */
     public function up()
     {
-        Schema::create('aluno', function (Blueprint $table) {
-            $table->integer('Matricula')->primary();
-            $table->string('Nome');
-            $table->string('Nivel');
+        Schema::create('Professor', function (Blueprint $table) {
+            $table->increments('CodProf');
+            $table->string('NomeProf',80);
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CriaTabelaAluno extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aluno');
+        Schema::dropIfExists('Professor');
     }
 }

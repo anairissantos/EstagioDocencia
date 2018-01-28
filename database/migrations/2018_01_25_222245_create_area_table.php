@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriaTabelaProfessor extends Migration
+class CreateAreaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CriaTabelaProfessor extends Migration
      */
     public function up()
     {
-        Schema::create('professor', function (Blueprint $table) {
-            $table->integer('CodProf')->primary();
-            $table->string('Nome');
+        Schema::create('Area', function (Blueprint $table) {
+            $table->increments('CodArea');
+            $table->string('Nome',100);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CriaTabelaProfessor extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('professor');
+        Schema::dropIfExists('Area');
     }
 }

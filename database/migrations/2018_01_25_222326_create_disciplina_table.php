@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriaTabelaArea extends Migration
+class CreateDisciplinaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CriaTabelaArea extends Migration
      */
     public function up()
     {
-        Schema::create('area', function (Blueprint $table) {
-            $table->integer('CodArea')->primary();
-            $table->string('Nome');
+        Schema::create('Disciplina', function (Blueprint $table) {
+            $table->char('CodDisc', 6)->primary();
+            $table->unsignedInteger('CodArea');
+            $table->foreign('CodArea')->references('CodArea')->on('Area')->onDelete('no action');
+            $table->string('NomeDisc',80);
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CriaTabelaArea extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('area');
+        Schema::dropIfExists('Disciplina');
     }
 }
