@@ -111,18 +111,20 @@ return [
         'Menu',
         [
             'text' => 'Blog',
-            'url'  => 'admin/blog',
+            'url'  => 'admin',
             'can'  => 'manage-blog',
         ],
+
         [
-            'text'        => 'Menu',
-            'url'         => 'admin/pages',
-            'icon'        => 'home',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Alocacao',
+            'icon'        => 'fa fa-user-o',
+            'url'         =>  'index',
+
+            ],
+
         ],
 
-    ],
+
 
     /*
     |--------------------------------------------------------------------------
