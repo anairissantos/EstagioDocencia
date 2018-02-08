@@ -14,7 +14,7 @@ class TurmaSolicitada extends Model
         'CodTurma'
     ];
 
-    protected $table = 'TurmaSolicitada';
+    protected $table = 'turma_solicitada';
 
     protected $primaryKey = 'Prioridade';
 

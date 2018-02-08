@@ -17,7 +17,7 @@ class Turma extends Model
 
     ];
 
-    protected $table = 'Turma';
+    protected $table = 'turma';
     protected $primaryKey = 'CodTurma';
     public $incrementing = false;
 

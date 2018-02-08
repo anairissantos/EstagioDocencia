@@ -12,7 +12,7 @@ class Disciplina extends Model
         'Nome'
 
     ];
-    protected $table = 'Disciplina';
+    protected $table = 'disciplina';
 
     protected $primaryKey = 'CodDisc';
 

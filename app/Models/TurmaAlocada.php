@@ -15,7 +15,7 @@ class TurmaAlocada extends Model
 
     ];
 
-    protected $table = 'TurmaAlocada';
+    protected $table = 'turma_alocada';
 
     protected $primaryKey = 'Rodada';
 

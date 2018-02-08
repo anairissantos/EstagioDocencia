@@ -12,7 +12,7 @@ class Aluno extends Model
         'Nivel'
 
     ];
-    protected  $table = 'Aluno';
+    protected  $table = 'aluno';
 
     protected $primaryKey = 'Matricula';
 

@@ -10,7 +10,7 @@ class Area extends Model
         'CodArea',
         'Nome'
     ];
-    protected  $table = 'Area';
+    protected  $table = 'area';
 }
 
 

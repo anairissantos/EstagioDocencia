@@ -12,7 +12,7 @@ class AreaInteresse extends Model
         'Prioridade',
         'CodArea'
     ];
-    protected  $table = 'AreaInteresse';
+    protected  $table = 'area_interesse';
 
     protected $primaryKey = 'Prioridade';
 

@@ -10,6 +10,6 @@ class Professor extends Model
         'CodProf',
         'Nome'
     ];
-    protected  $table = 'Professor';
+    protected  $table = 'professor';
 
 }

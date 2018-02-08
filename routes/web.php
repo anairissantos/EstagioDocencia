@@ -5,11 +5,12 @@ $this->group (['middleware'=>['auth'],'namespace'=> 'Admin'],function (){
 });
 
 $this->get('index', 'Site\CadastroEstagioController@index');
-$this->get('confirmar', 'Site\CadastroEstagioController@confirmar');
+$this->post('verificar', 'Site\CadastroEstagioController@verificar');
+
 
 $this->get('/', 'Site\SiteController@index')->name('home');
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-$this->post('login', 'Auth\LoginController@login');
+$this->post('login', 'Auth\Log inController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
