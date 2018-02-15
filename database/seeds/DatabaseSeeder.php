@@ -12,7 +12,6 @@ class DatabaseSeeder extends Seeder {
     {
         $this->call('AlunoTableSeeder');
         $this->call('ProfessorTableSeeder');
-        $this->call('Cadastro_EstagioTableSeeder');
     }
 }
 class AlunoTableSeeder extends Seeder
@@ -37,10 +36,14 @@ class ProfessorTableSeeder extends Seeder
             'CodProf'=> '1',
             'NomeProf' => 'maria',
         ]);
+        Professor::create([
+            'CodProf'=> '2',
+            'NomeProf' => 'jose',
+        ]);
     }
 }
 
-class Cadastro_EstagioTableSeeder extends Seeder
+/*class Cadastro_EstagioTableSeeder extends Seeder
 {
 
     public function run()
@@ -57,6 +60,6 @@ class Cadastro_EstagioTableSeeder extends Seeder
         ]);
 
     }
-}
+}*/
 
 

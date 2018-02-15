@@ -14,10 +14,10 @@ class CreateCadastroEstagioTable extends Migration
     public function up()
     {
         Schema::create('CadastroEstagio', function (Blueprint $table) {
-            $table->char('Semestre', 5);
+            $table->char('Semestre', 5)->nullable();
             $table->char('Matricula', 9);
-            $table->string('Email',100);
-            $table->unsignedInteger('ProfOrient');
+            $table->string('Email',100)->nullable();
+            $table->unsignedInteger('ProfOrient')->nullable();
             $table->unsignedInteger('ProfCoOrientador')->nullable();
             $table->dateTime('DataHora');
             $table->boolean('MatriculaAtiva')->default(true);

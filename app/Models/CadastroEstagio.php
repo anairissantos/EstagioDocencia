@@ -15,7 +15,7 @@ class CadastroEstagio extends Model
         'DataHora',
         'MatriculaAtiva'
     ];
-    protected  $table = 'cadastro_estagio';
+    protected  $table = 'cadastroestagio';
 
     protected $primaryKey = 'Semestre';
 

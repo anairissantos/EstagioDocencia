@@ -6,7 +6,9 @@ $this->group (['middleware'=>['auth'],'namespace'=> 'Admin'],function (){
 
 $this->get('index', 'Site\CadastroEstagioController@index');
 $this->post('verificar', 'Site\CadastroEstagioController@verificar');
-
+$this->post('salvar', 'Site\CadastroEstagioController@salvar');
+$this->post('confirmar', 'Site\CadastroEstagioController@confirmar');
+$this->get('confirmar/create', 'Site\TurmaController@create');
 
 $this->get('/', 'Site\SiteController@index')->name('home');
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
