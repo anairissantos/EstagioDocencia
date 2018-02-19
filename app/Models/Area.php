@@ -11,6 +11,7 @@ class Area extends Model
         'Nome'
     ];
     protected  $table = 'area';
+    protected $primaryKey = 'CodArea';
 }
 
 

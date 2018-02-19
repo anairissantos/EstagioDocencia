@@ -8,8 +8,8 @@
 @section('content')
 
     <div class="container">
-        <form class="col-md-6" action="{{url('salvar')}}" method="post">
-            {{csrf_field()}}
+            <form class="col-md-6" action="{{url('salvar/')}}" method="post">
+                {{csrf_field()}}
             <br>
             <div class="row">
                 <div class="container">
@@ -24,7 +24,7 @@
                     </div>
                         <div class="container">
                         <label style="margin-bottom: 40px"  class="control-label">Semestre:</label>
-                        <input  required style="margin-bottom: 40px"  maxlength="5" size="5" align="center" name="Semestre" class="form-controll" value="{{$get_cadastroestagio}}" >
+                        <input  required style="margin-bottom: 40px"  maxlength="5" size="5" align="center" name="Semestre" class="form-controll" value="{{$get_cadastroestagio->Semestre}}" >
                      </div>
                     <div class="container">
                              <label style="margin-bottom: 40px"  class="control-label">Nivel:</label>

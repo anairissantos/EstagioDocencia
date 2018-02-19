@@ -24,13 +24,10 @@
                         <label class="control-label">Nome do Professor Orientador:</label>
                         <select  name="ProfOrient" class="form-control">
                                 <option>Escolha o Professor</option>
-                            {{-- ele deverá gravar o ID do Nome do professor na tabela Cadastro Estagio
-                            mas aqui ta tentando salvar o nome ai da erro--}}
                             @foreach($get_cadastroprof as $dadosprof)
-                            <option   value="{{$dadosprof->NomeProf}}"> {{$dadosprof->NomeProf}}</option>
+                            <option   value="{{$dadosprof->CodProf}}"> {{$dadosprof->NomeProf}}</option>
                             @endforeach
                         </select>
-
                     </div>
 
                     <div class="container">

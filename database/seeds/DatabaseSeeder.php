@@ -4,7 +4,9 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Aluno;
 use App\Models\Professor;
-Use App\Models\CadastroEstagio;
+use App\Models\Turma;
+use App\Models\Area;
+use App\Models\Disciplina;
 
 class DatabaseSeeder extends Seeder {
 
@@ -12,6 +14,9 @@ class DatabaseSeeder extends Seeder {
     {
         $this->call('AlunoTableSeeder');
         $this->call('ProfessorTableSeeder');
+        $this->call('AreaTableSeeder');
+        $this->call('DisciplinaTableSeeder');
+        $this->call('TurmaTableSeeder');
     }
 }
 class AlunoTableSeeder extends Seeder
@@ -43,23 +48,77 @@ class ProfessorTableSeeder extends Seeder
     }
 }
 
-/*class Cadastro_EstagioTableSeeder extends Seeder
+
+class AreaTableSeeder extends Seeder
 {
 
     public function run()
     {
-        DB::table('cadastroestagio')->delete();
-        CadastroEstagio::create([
-            'Matricula' => '123456789',
-            'Semestre' => '20122',
-            'Email' => 'anairiscsantos@gmail.com',
-            'ProfOrient' => '1',
-            'ProfCoOrientador' =>'1',
-            'DataHora'=>'2018-02-03 16:08:16',
-            'matriculaAtiva'=> '1',
+        DB::table('area')->delete();
+        Area::create([
+            'CodArea' => '1',
+            'Nome' => 'Arquitetura de Computadores ',
+        ]);
+        Area::create([
+            'CodArea' => '2',
+            'Nome' => 'Banco de Dados',
+        ]);
+
+        Area::create([
+            'CodArea' => '3',
+            'Nome' => ' Computação e Sociedade ',
         ]);
 
     }
-}*/
+}
+
+class DisciplinaTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('disciplina')->delete();
+        Disciplina::create([
+            'CodDisc'=> 'MATA38',
+            'CodArea' => '1',
+            'NomeDisc'=> 'Projeto de Circuitos Lógicos',
+        ]);
+        Disciplina::create([
+            'CodDisc'=> 'MATA60',
+            'CodArea' => '2',
+            'NomeDisc'=>'Banco de Dados',
+        ]);
+
+    }
+}
+
+class TurmaTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('turma')->delete();
+            Turma::create([
+                'CodDisc' =>    'MATA38',
+                'CodTurma' => '010100',
+                'Semestre' => '20172',
+                'CodProf' =>'1',
+                'Horario' => '18:30/22:10',
+                'TravaAlocacao' => '1',
+                'TurmaAtiva' => '1',
+        ]);
+
+        Turma::create([
+            'CodDisc'=>    'MATA60',
+            'CodTurma' => '010200',
+            'Semestre' => '20172',
+            'CodProf'=> '2',
+            'Horario'=> '18:30/20:10',
+            'TravaAlocacao'=>'1',
+            'TurmaAtiva'=>'1',
+        ]);
+
+    }
+}
 
 

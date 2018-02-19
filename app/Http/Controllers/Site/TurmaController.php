@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
+use App\Models\Turma;
+use App\Models\Disciplina;
 
 class TurmaController extends Controller
 {
@@ -25,18 +28,21 @@ class TurmaController extends Controller
     public function create()
     {
 
-        return view('site.turma.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $get_disciplina = DB::table('disciplina')->select('NomeDisc')
+            ->where('NomeDisc', '=', [$request->NomeDisc])->get();
+
+        $get_turma = DB::table('turma')->select('CodTurma','Horario', 'NomeDisc', 'NomeProf')
+            ->join('disciplina', 'disciplina.CodDisc', '=', 'turma.CodDisc')
+            ->join('professor', 'professor.CodProf','=','turma.CodProf')
+            ->get();
+
+
+      return view('site.turma.create', compact('get_turma','get_disciplina'));
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Models;
 use App\Models\Professor;
+use App\Models\AreaInteresse;
 
 class CadastroEstagioController extends Controller
 {
@@ -20,7 +21,8 @@ class CadastroEstagioController extends Controller
     public function verificar(request $request)
     {
         $get_cadastroaluno = DB::table('aluno')->select('Nome', 'Matricula', 'Nivel')
-            ->where('Matricula', '=', [$request->Matricula])->get();
+        ->where('Matricula', '=', [$request->Matricula])->get();
+
         $get_cadastroestagio = $request->Semestre;
 
         return view("site.cadastro.verificar",
@@ -32,10 +34,14 @@ class CadastroEstagioController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function salvar(Request $request)
+
     {
         $data = $request->except('Nivel');
         $data["DataHora"] = Carbon::now();
         $response = CadastroEstagio::create($data)->ToArray();
+
+        $get_areainteresse = DB::table('areainteresse')->select('Nome', 'Matricula', 'Nivel')
+            ->where('Matricula', '=', [$request->Matricula])->get();
 
         $get_cadastroaluno = DB::table('aluno')->select('Nome')
             ->where('Nome', '=', [$request->Nome])->get();
@@ -46,16 +52,27 @@ class CadastroEstagioController extends Controller
 
        return view("site.cadastro.create",
             compact( "get_cadastroaluno", "get_cadastroestagio","get_cadastroprof"));
+
+
     }
+
 
     /**
      * @param Request $request
      */
     public function confirmar(Request $request)
     {
+
         $data=$request->all();
         $data["DataHora"] = Carbon::now();
+        $data["Semestre"]='20172';
         $response = CadastroEstagio::create($data)->ToArray();
+
+
+        $get_cadastroaluno = DB::table('aluno')->select( 'Matricula')
+            ->where('Matricula', '=', [$request->Matricula])->get();
+
+        return view("site.turma.create");
 
     }
 
