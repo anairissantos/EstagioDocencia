@@ -8,7 +8,10 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
     /*metodo index*/
-   public function index(){
-       return view('admin.home.index');
-   }
+    public function index()
+    {
+        return view('admin.home.index');
+    }
+
+
 }

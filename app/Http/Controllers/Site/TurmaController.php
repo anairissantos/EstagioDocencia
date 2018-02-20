@@ -35,8 +35,6 @@ class TurmaController extends Controller
     {
         $get_disciplina = DB::table('disciplina')->select('NomeDisc')->get();
 
-            /*->where('NomeDisc', '=', [$request->NomeDisc])*/
-
         $get_turma = DB::table('turma')->select('CodTurma','Horario', 'NomeDisc', 'NomeProf')
             ->join('disciplina', 'disciplina.CodDisc', '=', 'turma.CodDisc')
             ->join('professor', 'professor.CodProf','=','turma.CodProf')

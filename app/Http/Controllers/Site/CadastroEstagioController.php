@@ -18,15 +18,22 @@ class CadastroEstagioController extends Controller
         return view('site.cadastro.index');
     }
 
-    public function verificar(request $request)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function verificar(Request $request)
     {
         $get_cadastroaluno = DB::table('aluno')->select('Nome', 'Matricula', 'Nivel')
-        ->where('Matricula', '=', [$request->Matricula])->get();
-
-        $get_cadastroestagio = $request->Semestre;
-
-        return view("site.cadastro.verificar",
-            compact("get_cadastroaluno", "get_cadastroestagio"));
+            ->where('Matricula', '=', [$request->Matricula])->get();
+        $get_cadastroestagio = DB::table('turma')->select('Semestre')
+            ->where('Semestre', '=', [$request->Semestre]) -> get();
+        if (count($get_cadastroestagio) > 0) {
+            return view("site.cadastro.verificar", compact("get_cadastroaluno", "get_cadastroestagio"));
+        }
+        else{
+                return redirect('/verificar')->with('message', 'Erro! Semestre informado não corresponde ao turma.');
+            }
     }
 
     /**
@@ -35,11 +42,13 @@ class CadastroEstagioController extends Controller
      */
     public function salvar(Request $request)
 
-    {
+    { /*metodo que salva as informações do segundo form*/
+
         $data = $request->except('Nivel');
         $data["DataHora"] = Carbon::now();
-        $response = CadastroEstagio::create($data)->ToArray();
+        $response = CadastroEstagio::create($data);
 
+    /*busca as informações no banco como nome e deixa para preencher as demais*/
         $get_cadastroaluno = DB::table('aluno')->select('Nome')
             ->where('Nome', '=', [$request->Nome])->get();
 
