@@ -4,6 +4,7 @@
     <h1>Faça Suas Escolhas!</h1>
 @stop
 
+
 @section('content')
 
     <div class="container">
@@ -37,11 +38,9 @@
 
                 </div>
                      <input type="button" style="margin-right: 5px;" value="Voltar" onClick="history.go(-1)" class="btn btn primary" ></input>
-                @if ($contador < 10)
                 <input type="button" value="Avançar" onCLick="history.forward()" class="btn btn primary"></input>
-                @elsif
                     <input type="button" value="Finalizar" onCLick="history.forward()" class="btn btn primary"></input>
-                    @endif
+
             </div>
         </form>
     </div>

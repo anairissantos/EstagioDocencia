@@ -26,14 +26,17 @@ class CadastroEstagioController extends Controller
     {
         $get_cadastroaluno = DB::table('aluno')->select('Nome', 'Matricula', 'Nivel')
             ->where('Matricula', '=', [$request->Matricula])->get();
-        $get_cadastroestagio = DB::table('turma')->select('Semestre')
-            ->where('Semestre', '=', [$request->Semestre]) -> get();
-        if (count($get_cadastroestagio) > 0) {
-            return view("site.cadastro.verificar", compact("get_cadastroaluno", "get_cadastroestagio"));
+
+        $get_cadastroestagio = $request->Semestre;
+
+
+        /*if (count($get_cadastroestagio) > 0) {
+
         }
         else{
                 return redirect('/verificar')->with('message', 'Erro! Semestre informado não corresponde ao turma.');
-            }
+            }*/
+        return view("site.cadastro.verificar", compact("get_cadastroaluno", "get_cadastroestagio"));
     }
 
     /**
@@ -46,7 +49,7 @@ class CadastroEstagioController extends Controller
 
         $data = $request->except('Nivel');
         $data["DataHora"] = Carbon::now();
-        $response = CadastroEstagio::create($data);
+        $response = CadastroEstagio::create($data)->toArray;
 
     /*busca as informações no banco como nome e deixa para preencher as demais*/
         $get_cadastroaluno = DB::table('aluno')->select('Nome')
@@ -56,7 +59,7 @@ class CadastroEstagioController extends Controller
         $get_cadastroprof = DB::table('professor')->select('NomeProf','CodProf')->get();
 
 
-       return view("site.cadastro.create",
+       return view('site.cadastro.create',
             compact( "get_cadastroaluno", "get_cadastroestagio","get_cadastroprof"));
 
 
@@ -69,16 +72,18 @@ class CadastroEstagioController extends Controller
     public function confirmar(Request $request)
     {
 
-        $data=$request->all();
+        $data = $request->all();
         $data["DataHora"] = Carbon::now();
-        $response = CadastroEstagio::create($data)->ToArray();
-
-
-        $get_cadastroaluno = DB::table('aluno')->select( 'Matricula')
+        $data["Semestre"] = 20172;
+        $get_cadastroaluno = DB::table('aluno')->select('Matricula')
             ->where('Matricula', '=', [$request->Matricula])->get();
+        $data["Matricula"] = $get_cadastroaluno;
 
-        return view("site.turma.create");
+        $response = CadastroEstagio::create($data)->toArray;
 
+
+
+        return view("site.turma.create",compact("$get_cadastroaluno"));
     }
 
 
