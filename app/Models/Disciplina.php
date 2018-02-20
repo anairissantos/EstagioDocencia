@@ -9,7 +9,7 @@ class Disciplina extends Model
     protected $fillable = [
         'CodDisc',
         'CodArea',
-        'Nome'
+        'NomeDisc'
 
     ];
     protected $table = 'disciplina';

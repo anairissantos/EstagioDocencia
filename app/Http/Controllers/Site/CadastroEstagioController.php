@@ -40,9 +40,6 @@ class CadastroEstagioController extends Controller
         $data["DataHora"] = Carbon::now();
         $response = CadastroEstagio::create($data)->ToArray();
 
-        $get_areainteresse = DB::table('areainteresse')->select('Nome', 'Matricula', 'Nivel')
-            ->where('Matricula', '=', [$request->Matricula])->get();
-
         $get_cadastroaluno = DB::table('aluno')->select('Nome')
             ->where('Nome', '=', [$request->Nome])->get();
 
@@ -65,7 +62,6 @@ class CadastroEstagioController extends Controller
 
         $data=$request->all();
         $data["DataHora"] = Carbon::now();
-        $data["Semestre"]='20172';
         $response = CadastroEstagio::create($data)->ToArray();
 
 

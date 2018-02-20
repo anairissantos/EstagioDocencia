@@ -15,19 +15,20 @@
                     <div class="container">
 
                     <label style=""  class="control-label">Nome da Disciplina:</label>
-                    <select  style="margin-bottom: 40px" name="CodDisc" class="form-control">
+
+                    <select  style="margin-bottom: 40px" name="NomeDisc" class="form-control">
                         <option>Escolha a Disciplina</option>
                          @foreach($get_disciplina as $disc)
-                            <option   value="{{$get_disciplina->CodDisc}}">{{$get_disciplina->NomeDisc}}</option>
+                            <option   value="{{$disc->NomeDisc}}">{{$disc->NomeDisc}}</option>
                             @endforeach
                     </select>
                     </div>
                     <div class="container">
-                         <label  style="margin-bottom: 40px"  class="control-label">Turma:</label>
                         @foreach ($get_turma as $turma)
-                            <h6>Horário<input   style="margin-bottom: 40px" align="center" name="Horario" class="form-controll" value="Horario"></h6>
+                            <label  style="margin-bottom: 40px"  class="control-label">Turma:</label> <span> {{$turma->CodTurma}}</span>
+                            <h6>Horário<input   style="margin-bottom: 40px" align="center" name="Horario" class="form-controll" value="{{$turma->Horario}}"></h6>
                             <h6>Docente<input  style="margin-bottom: 40px" align="center" name="CodProf" class="form-controll" value="{{$turma->NomeProf}}"></h6>
-                            <h6>Numero da Turma <input  style="margin-bottom: 40px" align="center" name="CodTurma" class="form-controll" value="CodTurma"></h6>
+
 
                         @endforeach
                         <input style="" align="left" type="checkbox">
@@ -36,7 +37,11 @@
 
                 </div>
                      <input type="button" style="margin-right: 5px;" value="Voltar" onClick="history.go(-1)" class="btn btn primary" ></input>
-                    <input type="button" value="Avançar" onCLick="history.forward()" class="btn btn primary"></input>
+                @if ($contador < 10)
+                <input type="button" value="Avançar" onCLick="history.forward()" class="btn btn primary"></input>
+                @elsif
+                    <input type="button" value="Finalizar" onCLick="history.forward()" class="btn btn primary"></input>
+                    @endif
             </div>
         </form>
     </div>

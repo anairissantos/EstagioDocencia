@@ -31,10 +31,11 @@ class TurmaController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(request $request)
     {
-        $get_disciplina = DB::table('disciplina')->select('NomeDisc')
-            ->where('NomeDisc', '=', [$request->NomeDisc])->get();
+        $get_disciplina = DB::table('disciplina')->select('NomeDisc')->get();
+
+            /*->where('NomeDisc', '=', [$request->NomeDisc])*/
 
         $get_turma = DB::table('turma')->select('CodTurma','Horario', 'NomeDisc', 'NomeProf')
             ->join('disciplina', 'disciplina.CodDisc', '=', 'turma.CodDisc')

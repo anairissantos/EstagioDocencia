@@ -24,7 +24,7 @@
                     </div>
                         <div class="container">
                         <label style="margin-bottom: 40px"  class="control-label">Semestre:</label>
-                        <input  required style="margin-bottom: 40px"  maxlength="5" size="5" align="center" name="Semestre" class="form-controll" value="{{$get_cadastroestagio->Semestre}}" >
+                        <input  required style="margin-bottom: 40px"  maxlength="5" size="5" align="center" name="Semestre" class="form-controll" value="{{$get_cadastroestagio}}" >
                      </div>
                     <div class="container">
                              <label style="margin-bottom: 40px"  class="control-label">Nivel:</label>
